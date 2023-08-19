@@ -59,13 +59,13 @@ repos:
           - --remove-unused-variables
 
   - repo: https://github.com/PyCQA/pylint
-    rev: v2.15.5
+    rev: v2.13.5
     hooks:
       - id: pylint
-        name: pylint checks
+        name: pylint with optional checks
         args:
           - --rcfile=.pylintrc
           - --exit-zero
         verbose: true
         additional_dependencies: &pylint_deps
-          - pylint-odoo==8.0.19
+          - pylint-odoo==6.2.0

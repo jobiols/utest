@@ -24,8 +24,9 @@
     "category": "Tools",
     "summary": "Test for v16 EE",
     "license": "AGPL-3",
+    "author": "Quilsoft",
     "depends": [],
-    "data": [],
+    "data": ["views/res_partner_view.xml"],
     "installable": True,
     "application": True,
 }

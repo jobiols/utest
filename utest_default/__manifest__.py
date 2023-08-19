@@ -22,6 +22,7 @@
     "name": "utest",
     "version": "16.0.1.0.0",
     "category": "Tools",
+    "author": "Quilsoft",
     "summary": "Test for v16 EE",
     "license": "AGPL-3",
     "depends": [],

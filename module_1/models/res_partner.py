@@ -3,7 +3,7 @@
 from odoo import fields, models
 
 
-class res_company(models.Model):
+class ResCompany(models.Model):
     _inherit = "res.company"
 
     corporate_data = fields.Html(

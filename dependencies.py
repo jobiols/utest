@@ -7,11 +7,11 @@ def get_manifest_from_struct(path):
     revisar toda la estructura hasta encontrar un manifest.
     devolver el manifest y el path
     """
-    ret = list()
+    ret = []
     for root, dirs, files in os.walk(path):
         set_files = {"__openerp__.py", "__manifest__.py"}.intersection(files)
         for file in list(set_files):
-            manifest_file = f"{root}/{file}"
+            manifest_file = "%s/%s" % (root, file)
             manifest = load_manifest(manifest_file)
             name = root[2:]
             dependences = {name: manifest.get("depends", [])}
@@ -26,7 +26,7 @@ def load_manifest(filename):
     :return: manifest in dictionary format
     """
     manifest = ""
-    with open(filename) as _f:
+    with open(filename, encoding="utf-8") as _f:
         for line in _f:
             if line.strip() and line.strip()[0] != "#":
                 manifest += line
@@ -38,12 +38,23 @@ def load_manifest(filename):
         # incluir en el diagrama solo si el módulo es instalable
         if ret.get("installable", True):
             return ret
-        else:
-            return {"name": "none"}
+
+        return {"name": "none"}
 
 
 def get_all_manifest(self, path):
-    ret = list()
+    ret = []
+    # busco en toda la estructura de directorios
+    manifest, path = self.get_manifest_from_struct(path)
+    if manifest:
+        ret.append(load_manifest(manifest))
+
+    # devuelvo el manifiesto o false si no esta
+    return manifest
+
+
+def get_all_manifest2(self, path):
+    ret = []
     # busco en toda la estructura de directorios
     manifest, path = self.get_manifest_from_struct(path)
     if manifest:
@@ -56,7 +67,7 @@ def get_all_manifest(self, path):
 def write_puml():
     graph = get_manifest_from_struct("./")
     include = [list(x.keys())[0] for x in graph]
-    with open("./dependencies.puml", "w") as _f:
+    with open("./dependencies.puml", "w", encoding="utf-8") as _f:
         _f.write("@startuml\n")
         for dep in graph:
             name = list(dep.keys())[0]
