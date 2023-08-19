@@ -23,12 +23,12 @@ repos:
         args: ["--fix=lf"]
 
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.7.0
     hooks:
      - id: black
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.4.0
+    rev: v3.10.1
     hooks:
       - id: pyupgrade
         args: ["--keep-percent-format"]
@@ -41,25 +41,13 @@ repos:
         args: ["--profile", "black", "--filter-files", "--skip-gitignore"]
         exclude: /__init__\.py$
 
-  - repo: https://github.com/PyCQA/pylint
-    rev: v2.13.5
-    hooks:
-      - id: pylint
-        name: pylint with optional checks
-        args:
-          - --rcfile=.pylintrc
-          - --exit-zero
-        verbose: true
-        additional_dependencies: &pylint_deps
-          - pylint-odoo==6.2.0
-
   - repo: https://github.com/jobiols/gen-readme.git
-    rev: 1.0.20
+    rev: 1.1.0
     hooks:
       - id: gen-readme
 
   - repo: https://github.com/myint/autoflake
-    rev: v2.1.1
+    rev: v2.2.0
     hooks:
       - id: autoflake
         args:
@@ -69,3 +57,15 @@ repos:
           - --remove-all-unused-imports
           - --remove-duplicate-keys
           - --remove-unused-variables
+
+  - repo: https://github.com/PyCQA/pylint
+    rev: v2.15.5
+    hooks:
+      - id: pylint
+        name: pylint checks
+        args:
+          - --rcfile=.pylintrc
+          - --exit-zero
+        verbose: true
+        additional_dependencies: &pylint_deps
+          - pylint-odoo==8.0.19
