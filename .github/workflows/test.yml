@@ -9,7 +9,8 @@ on:
   push:
     branches:
       - "main"
-
+  workflow_dispatch: # Se dispara manualmente
+  
 jobs:
   unreleased-deps:
     runs-on: ubuntu-latest
