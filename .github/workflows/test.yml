@@ -38,21 +38,21 @@ jobs:
       matrix:
         include:
           - container: ghcr.io/oca/oca-ci/py3.10-odoo16.0:latest
-            include: "fetchmail_incoming_log,fetchmail_notify_error_to_sender_test,fetchmail_notify_error_to_sender"
+#            include: "fetchmail_incoming_log,fetchmail_notify_error_to_sender_test,fetchmail_notify_error_to_sender"
             makepot: "false"
             name: test with Odoo
     services:
       postgres:
-        image: postgres:9.6
+        image: postgres:12.0
         env:
           POSTGRES_USER: odoo
           POSTGRES_PASSWORD: odoo
           POSTGRES_DB: odoo
         ports:
           - 5432:5432
-    env:
-      INCLUDE: "${{ matrix.include }}"
-      EXCLUDE: "${{ matrix.exclude }}"
+#    env:
+#      INCLUDE: "${{ matrix.include }}"
+#      EXCLUDE: "${{ matrix.exclude }}"
     steps:
       - uses: actions/checkout@v3
         with:
