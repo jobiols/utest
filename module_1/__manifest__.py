@@ -26,7 +26,7 @@
     "license": "AGPL-3",
     "author": "Quilsoft",
     "depends": [],
-    "data": ["views/res_partner_view.xml"],
+    "data": [],
     "installable": True,
     "application": True,
 }

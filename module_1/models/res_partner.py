@@ -1,12 +1,10 @@
 # For copyright and license notices, see __manifest__.py file in module root
 
-from odoo import fields, models
+from odoo import models
 
 
-class ResCompany(models.Model):
-    _inherit = "res.company"
+class ResPartner(models.Model):
+    _inherit = "res.partner"
 
-    corporate_data = fields.Html(
-        string="Información corporativa",
-        help="Esta información aparecerá en las facturas",
-    )
+    def _suma(self, a, b):
+        return a + b
