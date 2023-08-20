@@ -1,3 +1,5 @@
+""" Generar un archivo PUML con las dependencias de los módulos """
+
 import ast
 import os
 

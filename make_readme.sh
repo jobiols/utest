@@ -10,14 +10,9 @@
 # $ . env/bin/activate
 # $ python setup.py install
 #
-source /opt/maintainer-tools/env/bin/activate
-oca-gen-addon-readme \
-	--org-name tecnopro-assistance \
-	--repo-name l10n-paraguay \
-	--branch 13.0 \
+gen-readme \
+	--org-name quilsoft-org \
+	--repo-name utest \
+	--branch 16.0 \
 	--addons-dir "$PWD" \
 	--gen-html
-
-pylint {} --load-plugins=pylint_odoo -d all -e odoolint -d C8101
-# ejecutar pylint en cada repositorio
-find ./* -type d -exec pylint {} --load-plugins=pylint_odoo -d all -e odoolint -d C8101 \;
