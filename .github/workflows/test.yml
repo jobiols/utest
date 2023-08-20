@@ -36,7 +36,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - container: ghcr.io/oca/oca-ci/py3.6-odoo16.0:latest
+          - container: ghcr.io/oca/oca-ci/py3.10-odoo16.0:latest
             include: "fetchmail_incoming_log,fetchmail_notify_error_to_sender_test,fetchmail_notify_error_to_sender"
             makepot: "false"
             name: test with Odoo
