@@ -13,7 +13,7 @@ def get_manifest_from_struct(path):
     for root, dirs, files in os.walk(path):
         set_files = {"__openerp__.py", "__manifest__.py"}.intersection(files)
         for file in list(set_files):
-            manifest_file = "%s/%s" % (root, file)
+            manifest_file = f"{root}/{file}")
             manifest = load_manifest(manifest_file)
             name = root[2:]
             dependences = {name: manifest.get("depends", [])}

@@ -1,5 +1,4 @@
 name: pre-commit
-run-name: ${{ github.actor }} is running pre-commit
 
 on:
   pull_request:
