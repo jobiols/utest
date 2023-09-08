@@ -1,2 +1,0 @@
-# {{odoo_version}}
-ls
