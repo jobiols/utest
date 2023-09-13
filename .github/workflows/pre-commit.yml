@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
    
       - name: agregar archivo y pushear
-      - run : |
+        run : |
           git config --global user.email "jorge.obiols@gmail.com"
           git config --global user.name "Jorge Obiols"
           echo "hola" > archivo.txt
