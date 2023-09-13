@@ -12,7 +12,7 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - name: bajar ultima version
+      - name: bajar ultima version.
         uses: actions/checkout@v4
    
       - name: agregar archivo y pushear
