@@ -19,7 +19,11 @@ jobs:
         run : |
           git config --global user.email "jorge.obiols@gmail.com"
           git config --global user.name "Jorge Obiols"
-          echo "hola" > archivo.txt
+          echo "holasss" > archivo.txt
           git add .
-          git commit -m"[ADD] agregamos archivo.txt"
+          git commit -m"[ADD] agregamos archivo.txt con nuevo contenido"
           git push
+          git checkout -b main.nuevo
+          git push origin main.nuevo
+
+      
