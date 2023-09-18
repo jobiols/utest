@@ -70,7 +70,7 @@ def write_puml():
     graph = get_manifest_from_struct("./")
     include = [list(x.keys())[0] for x in graph]
     with open("./dependencies.puml", "w", encoding="utf-8") as _f:
-        _f.write('@startuml "Dependency Diagram"\n"')
+        _f.write('@startuml "Dependency Diagram"\n')
         for dep in graph:
             name = list(dep.keys())[0]
             depends = list(dep.values())[0]
