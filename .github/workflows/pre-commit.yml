@@ -13,10 +13,10 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         name: Hacer checkout del repositorio
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         name: Instalar Python
         with:
           python-version: '3.8'
@@ -25,7 +25,7 @@ jobs:
       - name: Get python version
         run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Preparar cache para reducir tiempo de ejecución
         with:
           path: ~/.cache/pre-commit
