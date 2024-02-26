@@ -5,6 +5,7 @@ __pycache__/
 *$py.class
 .vscode/
 dependencies.puml
+credentials.py
 
 # Distribution / packaging
 .Python

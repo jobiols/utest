@@ -22,8 +22,7 @@ def get_manifest_from_struct(path):
 
 
 def load_manifest(filename):
-    """
-    Loads a manifest
+    """Loads a manifest
     :param filename: absolute filename to manifest
     :return: manifest in dictionary format
     """
@@ -61,7 +60,6 @@ def get_all_manifest2(self, path):
     manifest, path = self.get_manifest_from_struct(path)
     if manifest:
         ret.append(load_manifest(manifest))
-
     # devuelvo el manifiesto o false si no esta
     return manifest
 
