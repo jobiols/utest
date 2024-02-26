@@ -19,14 +19,12 @@
 ##############################################################################
 
 {
-    "name": "module uno",
+    "name": "Modulo test 1",
     "version": "16.0.1.0.0",
     "category": "Tools",
-    "summary": "Test for v16 EE",
+    "summary": "Test for v16 CE",
     "license": "AGPL-3",
     "author": "Quilsoft",
     "depends": [],
     "data": [],
-    "installable": True,
-    "application": True,
 }
