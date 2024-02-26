@@ -9,5 +9,5 @@ class ResPartner(models.Model):
     def _suma(self, a, b):
         return a + b
 
-    def _resta(self, a,b):
+    def _resta(self, a, b):
         return a - b
