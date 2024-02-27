@@ -46,6 +46,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+
+      - name: Read copier answers
+        id: read_yaml
+        run: echo 
+
+      - name: Mostrar valor de odoo_edition
+        run: echo "odoo_edition: ${{ steps.read_yaml.outputs.odoo_edition }}"
+
       - name: Install addons and dependencies
         run: oca_install_addons
       - name: Check licenses
