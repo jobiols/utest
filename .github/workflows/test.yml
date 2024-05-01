@@ -1,4 +1,4 @@
-# esto todavia no funciona
+# esta acción está en desarrollo
 
 name: tests
 
@@ -49,10 +49,10 @@ jobs:
 
       - name: Read copier answers
         id: read_yaml
-        run: echo 
+        run: echo
 
-      - name: Mostrar valor de odoo_edition
-        run: echo "odoo_edition: ${{ steps.read_yaml.outputs.odoo_edition }}"
+      # - name: Mostrar valor de odoo_edition
+      #   run: echo "odoo_edition: ${{ steps.read_yaml.outputs.odoo_edition }}"
 
       - name: Install addons and dependencies
         run: oca_install_addons
