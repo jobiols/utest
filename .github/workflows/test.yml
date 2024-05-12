@@ -84,7 +84,10 @@ jobs:
       - name: Initialize test db
         run: oca_init_test_database
 
-      # - name: Run tests
-      #   run: oca_run_tests
+      - name: Run tests
+        run: oca_run_tests
 
-#      - uses: codecov/codecov-action@v4
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
