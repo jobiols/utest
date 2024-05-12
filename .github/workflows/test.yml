@@ -24,18 +24,18 @@ jobs:
               fi
           done
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     container: ${{ matrix.container }}
     name: ${{ matrix.name }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - container: jobiols/py3.8-odoo16.0:latest
+          - container: jobiols/py3.10-odoo16.0:latest
             name: test with Odoo
     services:
       postgres:
-        image: postgres:12.0
+        image: postgres:10.1-alpine
         env:
           POSTGRES_USER: odoo
           POSTGRES_PASSWORD: odoo
