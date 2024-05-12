@@ -19,7 +19,7 @@
 ##############################################################################
 
 {
-    "name": "Modulo test uno",
+    "name": "Modulo test uno.",
     "version": "16.0.1.0.0",
     "category": "Tools",
     "summary": "Test for v16 CE",
