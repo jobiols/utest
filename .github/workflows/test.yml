@@ -60,8 +60,8 @@ jobs:
           yaml_content=$(cat .copier-answers.yml)
 
           # Extrae los valores de odoo_edition y odoo_version
-          odoo_edition=$(jq -r '.odoo_edition' .copier-answers.yml)
-          odoo_version=$(jq -r '.odoo_version' .copier-answers.yml)
+          odoo_edition=$(echo "$yaml_content" | grep 'odoo_edition' | cut -d ':' -f2 | tr -d '[:space:]')
+          odoo_version=$(echo "$yaml_content" | grep 'odoo_version' | cut -d ':' -f2 | tr -d '[:space:]')
 
           # Pone los valores en environment
           echo "odoo_edition=$odoo_edition" >> "$GITHUB_ENV"
