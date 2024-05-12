@@ -5,6 +5,8 @@ name: tests
 on:
   workflow_dispatch: # Se dispara manualmente
 
+  pull_request:
+
 jobs:
   unreleased-deps:
     runs-on: ubuntu-latest
