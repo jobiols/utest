@@ -23,16 +23,19 @@ jobs:
                   fi
               fi
           done
+
   test:
     runs-on: ubuntu-latest
     container: ${{ matrix.container }}
     name: ${{ matrix.name }}
+
     strategy:
       fail-fast: false
       matrix:
         include:
-          - container: jobiols/py3.10-odoo16.0:latest
-            name: test with Odoo
+          - name: test with ocb
+            container: jobiols/py3.10-odoo16.0:latest
+
     services:
       postgres:
         image: postgres:10.1-alpine
@@ -42,6 +45,7 @@ jobs:
           POSTGRES_DB: odoo
         ports:
           - 5432:5432
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -49,19 +53,31 @@ jobs:
 
       - name: Read copier answers
         id: read_yaml
-        run: echo
+        run: |
+          # Lee el contenido del archivo YAML
+          yaml_content=$(cat .copier-answers.yml)
 
-      # - name: Mostrar valor de odoo_edition
-      #   run: echo "odoo_edition: ${{ steps.read_yaml.outputs.odoo_edition }}"
+          # Extrae los valores de odoo_edition y odoo_version
+          export odoo_edition=$(echo "$yaml_content" | grep 'odoo_edition' | cut -d ':' -f2 | tr -d '[:space:]')
+          export odoo_version=$(echo "$yaml_content" | grep 'odoo_version' | cut -d ':' -f2 | tr -d '[:space:]')
+
+      - name: Mostrar valor de odoo_edition
+        run: |
+          echo "odoo_edition: ${{ steps.read_yaml.outputs.odoo_edition }}"
 
       - name: Install addons and dependencies
         run: oca_install_addons
+
       - name: Check licenses
         run: manifestoo -d . check-licenses
+
       - name: Check development status
         run: manifestoo -d . check-dev-status --default-dev-status=Beta
+
       - name: Initialize test db
         run: oca_init_test_database
+
       - name: Run tests
         run: oca_run_tests
-      - uses: codecov/codecov-action@v4
+
+#      - uses: codecov/codecov-action@v4
