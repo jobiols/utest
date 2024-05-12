@@ -10,7 +10,7 @@ class ResPartner(models.Model):
         return a + b
 
     def total_partners(self):
-        """ calcula el total de partners """
+        """calcula el total de partners"""
 
         total = self.search([])
         i = 0
