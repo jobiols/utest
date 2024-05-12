@@ -16,4 +16,3 @@ class ResPartner(models.Model):
         i = 0
         for a in total:
             i = i + 1
-        
