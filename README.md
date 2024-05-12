@@ -1,4 +1,7 @@
 # utest
+
+[![codecov](https://codecov.io/github/jobiols/utest/graph/badge.svg?token=zZXYZTytgd)](https://codecov.io/github/jobiols/utest)
+
 prueba de test unitarios con estos cambios
 
 En este test.yml debe definirse lo siguiente
