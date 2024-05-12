@@ -72,8 +72,8 @@ jobs:
         run: |
           echo "odoo_edition: ${{ env.odoo_edition }}"
 
-      # - name: Install addons and dependencies
-      #   run: oca_install_addons
+      - name: Install addons and dependencies
+        run: oca_install_addons
 
       # - name: Check licenses
       #   run: manifestoo -d . check-licenses
