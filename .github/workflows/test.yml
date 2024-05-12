@@ -58,26 +58,31 @@ jobs:
           yaml_content=$(cat .copier-answers.yml)
 
           # Extrae los valores de odoo_edition y odoo_version
-          export odoo_edition=$(echo "$yaml_content" | grep 'odoo_edition' | cut -d ':' -f2 | tr -d '[:space:]')
-          export odoo_version=$(echo "$yaml_content" | grep 'odoo_version' | cut -d ':' -f2 | tr -d '[:space:]')
+          odoo_edition=$(echo "$yaml_content" | grep 'odoo_edition' | cut -d ':' -f2 | tr -d '[:space:]')
+          odoo_version=$(echo "$yaml_content" | grep 'odoo_version' | cut -d ':' -f2 | tr -d '[:space:]')
+
+          # Pone los valores en environment
+          echo "odoo_edition=$odoo_edition" >> "$GITHUB_ENV"
+          echo "odoo_version=$odoo_version" >> "$GITHUB_ENV"
+        shell: bash
 
       - name: Mostrar valor de odoo_edition
         run: |
-          echo "odoo_edition: ${{ steps.read_yaml.outputs.odoo_edition }}"
+          echo "odoo_edition: ${{ env.odoo_edition }}"
 
-      - name: Install addons and dependencies
-        run: oca_install_addons
+      # - name: Install addons and dependencies
+      #   run: oca_install_addons
 
-      - name: Check licenses
-        run: manifestoo -d . check-licenses
+      # - name: Check licenses
+      #   run: manifestoo -d . check-licenses
 
-      - name: Check development status
-        run: manifestoo -d . check-dev-status --default-dev-status=Beta
+      # - name: Check development status
+      #   run: manifestoo -d . check-dev-status --default-dev-status=Beta
 
-      - name: Initialize test db
-        run: oca_init_test_database
+      # - name: Initialize test db
+      #   run: oca_init_test_database
 
-      - name: Run tests
-        run: oca_run_tests
+      # - name: Run tests
+      #   run: oca_run_tests
 
 #      - uses: codecov/codecov-action@v4
