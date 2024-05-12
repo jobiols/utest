@@ -87,6 +87,7 @@ jobs:
       - name: Run tests
         run: oca_run_tests
 
-      - uses: codecov/codecov-action@v4
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
         with:
-          token: dce429c3-1efe-46d2-bbe2-991101c465a7
+          token: ${{ secrets.CODECOV_TOKEN }}
