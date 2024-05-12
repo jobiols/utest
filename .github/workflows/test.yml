@@ -60,6 +60,7 @@ jobs:
           yaml_content=$(cat .copier-answers.yml)
 
           # Extrae los valores de odoo_edition y odoo_version
+
           odoo_edition=$(jq -r '.odoo_edition' .copier-answers.yml)
           odoo_version=$(jq -r '.odoo_version' .copier-answers.yml)
 
@@ -72,8 +73,8 @@ jobs:
         run: |
           echo "odoo_edition: ${{ env.odoo_edition }}"
 
-      - name: Install addons and dependencies
-        run: oca_install_addons
+      # - name: Install addons and dependencies
+      #   run: oca_install_addons
 
       # - name: Check licenses
       #   run: manifestoo -d . check-licenses
